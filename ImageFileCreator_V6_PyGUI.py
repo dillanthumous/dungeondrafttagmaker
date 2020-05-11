@@ -22,7 +22,7 @@ filePathStruct = "textures/objects/"
 
 # Theme setter for eye niceness
 sg.theme('DarkAmber')
-# Basic data entry layout - 1 million times easier than TKinter - inputs are key-value pairs in the "values" dictionary
+# Basic data entry layout - inputs are key-value pairs in the "values" dictionary
 # Added close=True parameter 11/05/20 as per Issue 1
 layout = [
         [sg.Text('Please choose from these optional settings - if you do nothing, the default folder is the script folder, and all other text is blank or defaulted')],
@@ -107,7 +107,7 @@ def prepend_append_to_dict_keys(prependage, appendage, d):
             prepend_append_to_dict_keys(prependage, d[each])
         keys_swap(each, prependage + str(each), d)
 
-# Call the spaghetti script and cross fingers
+# Call the script and cross fingers
 recursive_image_tagging()
 
 # Tell the player what they have won
