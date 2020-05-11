@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun May 10 15:02:03 2020
+Created on Mon May 11 19:37:09 2020
+
+A simple script and GUI for turning folders and their PNGs into Tags for Dungeon Draft
 """
 
 # Extra container objects for JSON output
@@ -21,18 +23,27 @@ filePathStruct = "textures/objects/"
 # Theme setter for eye niceness
 sg.theme('DarkAmber')
 # Basic data entry layout - 1 million times easier than TKinter - inputs are key-value pairs in the "values" dictionary
+# Added close=True parameter 11/05/20 as per Issue 1
 layout = [
         [sg.Text('Please choose from these optional settings - if you do nothing, the default folder is the script folder, and all other text is blank or defaulted')],
         [sg.Text('Locate the Main Folder that contains your Sub Folders of pngs:'), sg.InputText(), sg.FolderBrowse(key='FOLDER')],
         [sg.Text('Enter a prepended value for your tags (optional):'), sg.InputText(key='PREPEND')],
         [sg.Text('Enter an appended value for your tags (optional):'), sg.InputText(key='APPEND')],
         [sg.Text('Give a custom set name (defaults to "Default Set" - "Colorable" skipped):'), sg.InputText(key='SETNAME')],
-        [sg.Submit(), sg.Cancel()]     
-]                       
+        [sg.Submit(), sg.Cancel()]
+]         
+       
 # Window name, setupand reason for being
-window = sg.Window('Dungeon Draft Tag Generator - Uses Folder Names to Make Your Tags', layout)    
-event, values = window.read() # Capture then inputs    
-window.close() # Get rid of window
+window = sg.Window('Dungeon Draft Tag Generator - Uses Folder Names to Make Your Tags', layout) 
+event, values = window.read(close=True) # Capture the inputs and set the window call to auto-close
+
+# Catch Window Cancelled or Closed [see Issue 1 raised on GitHub] 
+if event == sg.WIN_CLOSED or event == 'Cancel':
+    sg.popup('Cancelling operation')
+    exit()
+   
+    
+#window.close() # Get rid of window - no longer needed
 
 # Input variable storage - uses keys from a Dict of Key-Value inputs as defined above
 base_path = values['FOLDER']
@@ -102,9 +113,3 @@ recursive_image_tagging()
 # Tell the player what they have won
 print(script_location)
 sg.popup('Please check ' + str(script_location) + ' for the output file (if it worked!)')
-
-
-
-
-    
-
