@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Sun May 10 15:02:03 2020
-
-@author: Shane Hegarty
-https://stackoverflow.com/questions/57553647/python3-convert-files-from-folder-and-sub-folder-to-json-file-on-specific-form
 """
 
 # Extra container objects for JSON output
