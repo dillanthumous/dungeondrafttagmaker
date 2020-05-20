@@ -16,4 +16,4 @@ A simple python script bodged together to turn folders containing pngs into a Ta
 
 **Note:** The default folder is the one the script is in, and this is where the file outputs to. Also, as mentioned above, the "Colorable" folder will not be included in the default set that is created. This is intentional, not a bug. 
 
-**Final Note:** I am not a professional programmer so please use cautiously - but should work as intended and at worst, crash if not!
+**Final Note:** I am not a professional programmer - but it should work as intended and at worst, crash if not!
